@@ -165,7 +165,7 @@ export default function Home() {
               <div className="space-y-6 text-zinc-400 font-bold text-sm">
                 <div className="space-y-2">
                   <p className="text-zinc-100 uppercase tracking-widest text-[11px]">Alamat</p>
-                  <p>Jl. Kenangan Manis No. 88,<br/>Denpasar, Bali - 80361</p>
+                  <p>Jl. Tukad Pakerisan gang XV/B2, Panjer,<br/>Denpasar, Bali - 80361</p>
                 </div>
                 <div className="space-y-2">
                   <p className="text-zinc-100 uppercase tracking-widest text-[11px]">Jam Buka</p>
