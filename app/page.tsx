@@ -32,12 +32,12 @@ export default function Home() {
     setShowSuccess(true);
   };
 
-  // Animasi Reveal untuk Judul
+  // Animasi Reveal - Ditambahkan 'as any' untuk mencegah error Build Vercel
   const containerReveal = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.3, delayChildren: 0.5 }
+      transition: { staggerChildren: 0.3, delayChildren: 0.5 } as any
     }
   };
 
@@ -47,7 +47,10 @@ export default function Home() {
       opacity: 1, 
       y: 0, 
       filter: "blur(0px)",
-      transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
+      transition: { 
+        duration: 1, 
+        ease: [0.22, 1, 0.36, 1] as any // Memperbaiki error TypeScript
+      }
     }
   };
 
@@ -69,7 +72,7 @@ export default function Home() {
           
           <motion.div variants={itemReveal} className="max-w-2xl mx-auto mb-16 px-4">
             <p className="text-lg md:text-xl text-zinc-500 leading-relaxed font-medium">
-              Selamat datang di <span className="text-zinc-900 font-bold border-b-2 border-orange-500/20">Jaya Cake</span>. Di sini kami percaya bahwa setiap potong kue memiliki cerita. Sebagai Premium Artisan Bakery, kami menjauhkan diri dari produksi massal. Setiap produk kami lahir dari tangan-tangan terampil yang mengutamakan ketelitian dan bahan baku berkualitas tinggi. Dari tekstur yang lembut hingga rasa yang autentik, tujuan kami hanya satu: menghadirkan kebahagiaan di setiap gigitan yang Anda nikmati.
+              Selamat datang di <span className="text-zinc-900 font-bold border-b-2 border-orange-500/20">Jaya Cake</span>. Kami mendedikasikan diri untuk menciptakan setiap produk dengan teknik buatan tangan yang teliti demi memberikan pengalaman manis yang tak terlupakan di setiap gigitan.
             </p>
           </motion.div>
 
@@ -112,7 +115,6 @@ export default function Home() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 mb-24 items-start">
             
-            {/* Sosmed & Brand */}
             <div className="lg:col-span-5 space-y-10">
               <div className="space-y-6">
                 <h2 className="text-4xl font-black tracking-tighter uppercase italic">JAYA<span className="text-orange-500">CAKE</span></h2>
@@ -121,7 +123,7 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* LOGO SOSIAL MEDIA RESMI */}
+              {/* LOGO SOSIAL MEDIA RESMI DENGAN WARNA BRAND */}
               <div className="flex gap-6 pt-2">
                 {[
                   { 
@@ -158,13 +160,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Kolom Informasi */}
             <div className="lg:col-span-3 space-y-8 pt-2">
               <h4 className="text-orange-500 font-black uppercase tracking-[0.4em] text-[10px]">Information</h4>
               <div className="space-y-6 text-zinc-400 font-bold text-sm">
                 <div className="space-y-2">
                   <p className="text-zinc-100 uppercase tracking-widest text-[11px]">Alamat</p>
-                  <p>Jl. Tukad Pakerisan gang XV/B2,<br/>Denpasar, Bali - 80361</p>
+                  <p>Jl. Kenangan Manis No. 88,<br/>Denpasar, Bali - 80361</p>
                 </div>
                 <div className="space-y-2">
                   <p className="text-zinc-100 uppercase tracking-widest text-[11px]">Jam Buka</p>
@@ -173,7 +174,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* TEKS BALI ARTISTIK */}
+            {/* TEKS BALI ARTISTIK 3D GRADIENT */}
             <div className="lg:col-span-4 flex lg:justify-end items-center">
               <div className="relative group cursor-default">
                 <h2 className="text-[9rem] md:text-[12rem] font-black leading-none tracking-tighter text-transparent select-none opacity-10 group-hover:opacity-20 transition-opacity duration-1000" 
@@ -196,7 +197,7 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* MODAL & KERANJANG */}
+      {/* MODAL SUCCESS & FLOATING CART */}
       <AnimatePresence>
         {showSuccess && (
           <div className="fixed inset-0 bg-zinc-950 z-[200] flex items-center justify-center text-center p-6 backdrop-blur-xl">
